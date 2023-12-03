@@ -427,7 +427,7 @@
                 // Get the current month (you can modify this logic as needed)
                 var currentMonth = document.querySelector('.month').textContent;
                 // Define an array of month names for comparison
-                var months = ["January 2023", "February 2023", "March 2023", "April 2023", "May 2023", "June 2023", "July2023", "August2023", "September 2023", "October 2023", "November 2023", "December 2023"];
+                var months = ["January 2023", "February 2023", "March 2023", "April 2023", "May 2023", "June 2023", "July 2023", "August 2023", "September 2023", "October 2023", "November 2023", "December 2023"];
                 // Get the index of the current month in the array
                 var currentIndex = months.indexOf(currentMonth);
                 // Calculate the index of the next month
@@ -478,7 +478,7 @@
 
             function showPreviousMonth() {
                 var currentMonth = document.querySelector('.month').textContent;
-                var months = ["January 2023", "February 2023", "March 2023", "April 2023", "May 2023", "June 2023", "July2023", "August2023", "September 2023", "October 2023", "November 2023", "December 2023"];
+                var months = ["January 2023", "February 2023", "March 2023", "April 2023", "May 2023", "June 2023", "July 2023", "August 2023", "September 2023", "October 2023", "November 2023", "December 2023"];
                 var currentIndex = months.indexOf(currentMonth);
                 var previousMonthIndex = (currentIndex - 1 + 12) % 12; // Ensure a positive index by adding 12 before modulo operation
                 var currentYear = new Date().getFullYear();

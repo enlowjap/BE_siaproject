@@ -16,66 +16,216 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <style>
-         body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-    }
+                        body {
+            font-family: Arial, sans-serif;
+            background:url('../pictures_admin/dash.png');
+            background-size:cover;
+        }
 
-    .sidebar {
-        height: 100%;
-        width: 250px;
-        background-color: white;
-        box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
-        overflow-y: auto;
-    }
+     .sidebar {
+            height: 120vh;
+            width: 250px;
+            top: 10px;
+            left: 0;
+            background-color: white;
+            padding-top: 20px;
+            box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-    .sidebar a {
-        padding: 15px;
-        text-decoration: none;
-        font-size: 16px;
-        color: #606060;
-        display: flex;
-        align-items: center;
-        transition: 0.3s ease;
-    }
+        .sidebar a {
+            padding: 8px 8px 8px 4px; /* Added more left padding for icons */
+            text-decoration: none;
+            font-size: 15px;
+            font-family:Arial;
+            color: #AD0005;
+            display: block;
+            transition: 0.3s ease;
+            background: url('path_to_your_icon.png') no-repeat left center; 
+        }
+        
+        .sidebar a i {
+            margin-right: 10px;
+            font-size: 28px;
+        }
 
-    .sidebar a i {
-        margin-right: 10px;
-        font-size: 20px;
-    }
-
-    .sidebar a:hover {
-        background-color: #F8DFE0;
-        color: darkred;
-    }
-
-        .student i,
+        .sidebar a:hover {
+            font-weight:bolder;
+            background-color: #F8DFE0;
+            color:darkred;
+        }
+        
+    .student i,
     .teacher i,
     .subject i {
     font-size: 40px;
     color:darkred;
 }
+    
+   .content {
+    margin-top:-700px;
+    padding-left:280px;
+}
 
-    .content {
-        flex: 1;
-        padding: 20px;
-         margin-top:-610px;
+            .h1, h1 {
+    font-size: 36px;
+    font-family:'Franklin Gothic Medium';
+    color:white;
+    max-width: 400px;
+}
+          
+/* GridView Style */
+#GridView1 {
+  width: 95%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Alternating row style */
+#GridView1 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Header style */
+#GridView1 th {
+  background-color: #3498db;
+  color: white;
+  padding: 12px;
+  text-align: center; /* Center the text in header cells */
+}
+
+/* Cell style */
+#GridView1 td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center; /* Center the text in data cells */
+}
+
+/* Action button style */
+#GridView1 .btnView {
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#GridView1 .btnView:hover {
+  background-color: #45a049;
+}
+
+
+
+/* Style for CheckBoxList items */
+.grade-levels input,
+.edu-types input {
+  display: none; /* Hide the actual checkbox */
+}
+
+.grade-levels label {
+  position: relative;
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 8px 12px;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  background-color: #3498db;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+  font-size: 12px;
+}
+
+.edu-types label {
+  position: relative;
+  display: inline-block;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  padding: 12px 18px;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  background-color: #3498db;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+}
+
+/* Pseudo-element for the check mark inside selected items */
+.grade-levels input:checked + label::before,
+.edu-types input:checked + label::before {
+  content: '\2713'; /* Unicode check mark character */
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  font-size: 18px;
+}
+
+/* Hover effect for CheckBoxList items */
+.grade-levels label:hover,
+.edu-types label:hover {
+  background-color: #2980b9;
+}
+
+/* Checked state style for CheckBoxList items */
+.grade-levels input:checked + label,
+.edu-types input:checked + label {
+  background-color: #2c3e50;
+  border-color: #2c3e50;
+  color: #fff;
+}
+
+.Category2 {
+ 
+  margin-top:-140px;
+  padding-left:280px;
+  
+}
+.Category1
+{
+ 
+  margin-top:-300px;
+  padding-left:280px;
+  
+}
+
+ .label {
+
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      padding-left:10px;
+      line-height: 8;
     }
 
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
+    .reload-container {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        margin: 10px;
+        text-align: right;
     }
 
-    .grid-item {
-        border: 1px solid #ddd;
-        padding: 20px;
-        text-align: center;
-        background-color: white;
+    .btn {
+        /* Add your button styling here */
+        padding: 10px 15px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
     }
+
+
+    #errorLabel {
+        /* Add your label styling here */
+        color: white;
+        margin-top: 10px;
+        display: block;
+    }
+
 
     #GridViewDocuments {
         width: 100%;
@@ -107,76 +257,58 @@
         <a href="../ADMIN_INTERFACE/Enrolled.aspx"><i class="fas fa-book-open"></i>ENROLLED STUDENT</a>
         <a href="#"><i class="fas fa-user-tie"></i>FACULTY TEACHERS</a>
         </div>
-         <div class="col-md-10">
-            <center>
-                <h1>Enrolling Student</h1>
-                <hr />
-             <div class="container">
-                            <div class="col-md-8">
-               <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="STUD_ID" OnRowCommand="GridView1_RowCommand" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="GridView1_PageIndexChanging">
-                        <AlternatingRowStyle BackColor="White" />
-                        <Columns>
-                            <asp:BoundField DataField="STUD_ID" HeaderText="STUD_ID" InsertVisible="False" ReadOnly="True" SortExpression="STUD_ID" />
-                            <asp:BoundField DataField="L_NAME" HeaderText="L_NAME" SortExpression="L_NAME" />
-                            <asp:BoundField DataField="F_NAME" HeaderText="F_NAME" SortExpression="F_NAME" />
-                            <asp:BoundField DataField="EDUC_TYPE" HeaderText="EDUC_TYPE" SortExpression="EDUC_TYPE" />
-                            <asp:BoundField DataField="GRD_LEVEL" HeaderText="GRD_LEVEL" SortExpression="GRD_LEVEL" />
-                            <asp:BoundField DataField="GRD_TRACK" HeaderText="GRD_TRACK" SortExpression="GRD_TRACK" />
-                            <asp:BoundField DataField="STATUS" HeaderText="STATUS" SortExpression="STATUS" />
-                            <asp:TemplateField HeaderText="Actions">
-                                <ItemTemplate>
-                                    <asp:Button ID="btnView" runat="server" Text="View" CommandName="ViewDetails" CommandArgument='<%# Bind("STUD_ID") %>' CssClass="btn btn-primary"  />
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                        </Columns>
-                  
-                        <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-                        <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-                        <SortedAscendingCellStyle BackColor="#FDF5AC" />
-                        <SortedAscendingHeaderStyle BackColor="#4D0000" />
-                        <SortedDescendingCellStyle BackColor="#FCF6C0" />
-                        <SortedDescendingHeaderStyle BackColor="#820000" />
-                  
-                    </asp:GridView>
-                    </div>
-                
-                <div class="col-md-8">
-               <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="STUD_ID" OnRowCommand="GridView1_RowCommand" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="GridView2_PageIndexChanging">
-                        <AlternatingRowStyle BackColor="White" />
-                        <Columns>
-                            <asp:BoundField DataField="STUD_ID" HeaderText="STUD_ID" InsertVisible="False" ReadOnly="True" SortExpression="STUD_ID" />
-                            <asp:BoundField DataField="L_NAME" HeaderText="L_NAME" SortExpression="L_NAME" />
-                            <asp:BoundField DataField="F_NAME" HeaderText="F_NAME" SortExpression="F_NAME" />
-                            <asp:BoundField DataField="EDUC_TYPE" HeaderText="EDUC_TYPE" SortExpression="EDUC_TYPE" />
-                            <asp:BoundField DataField="GRD_LEVEL" HeaderText="GRD_LEVEL" SortExpression="GRD_LEVEL" />
-                            <asp:BoundField DataField="GRD_TRACK" HeaderText="GRD_TRACK" SortExpression="GRD_TRACK" />
-                            <asp:BoundField DataField="STATUS" HeaderText="STATUS" SortExpression="STATUS" />
-                            <asp:TemplateField HeaderText="Actions">
-                                <ItemTemplate>
-                                    <asp:Button ID="btnView" runat="server" Text="View" CommandName="ViewDetails" CommandArgument='<%# Bind("STUD_ID") %>' CssClass="btn btn-primary"  />
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                        </Columns>
-                  
-                        <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                        <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                        <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-                        <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-                        <SortedAscendingCellStyle BackColor="#FDF5AC" />
-                        <SortedAscendingHeaderStyle BackColor="#4D0000" />
-                        <SortedDescendingCellStyle BackColor="#FCF6C0" />
-                        <SortedDescendingHeaderStyle BackColor="#820000" />
-                  
-                    </asp:GridView>
-                    </div>
+                </div>
 
-                <div class="row-md-4">
-                    
-                <asp:CheckBoxList ID="CheckBoxListGradeLevels" runat="server" AutoPostBack="true" OnSelectedIndexChanged="CheckBoxListGradeLevels_SelectedIndexChanged" RepeatDirection="Vertical">
+         <div class="content">
+                <h1>List of Enrolling Student</h1>
+                <hr />        
+
+               <asp:GridView ID="GridView1" runat="server" CssClass="GridView1" AutoGenerateColumns="False" DataKeyNames="STUD_ID" OnRowCommand="GridView1_RowCommand" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="GridView1_PageIndexChanging">
+                        <AlternatingRowStyle BackColor="White" />
+                        <Columns>
+                            <asp:BoundField DataField="STUD_ID" HeaderText="Student ID" InsertVisible="False" ReadOnly="True" SortExpression="STUD_ID" />
+                            <asp:BoundField DataField="L_NAME" HeaderText="Last Name" SortExpression="L_NAME" />
+                            <asp:BoundField DataField="F_NAME" HeaderText="First Name" SortExpression="F_NAME" />
+                            <asp:BoundField DataField="EDUC_TYPE" HeaderText="Educational Programs" SortExpression="EDUC_TYPE" />
+                            <asp:BoundField DataField="GRD_LEVEL" HeaderText="Grade Level" SortExpression="GRD_LEVEL" />
+                            <asp:BoundField DataField="GRD_TRACK" HeaderText="Grade Track" SortExpression="GRD_TRACK" />
+                            <asp:BoundField DataField="STATUS" HeaderText="Status" SortExpression="STATUS" />
+                            <asp:TemplateField HeaderText="Actions">
+                                <ItemTemplate>
+                                    <asp:Button ID="btnView" runat="server" Text="View" CommandName="ViewDetails" CommandArgument='<%# Bind("STUD_ID") %>' CssClass="btn btn-primary"  />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                       </asp:GridView>
+                    </div>
+    
+               <asp:GridView ID="GridView2" runat="server" CssClass="GridView2" AutoGenerateColumns="False" DataKeyNames="STUD_ID" OnRowCommand="GridView1_RowCommand" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="GridView2_PageIndexChanging">
+                        <AlternatingRowStyle BackColor="White" />
+                        <Columns>
+                            <asp:BoundField DataField="STUD_ID" HeaderText="STUD_ID" InsertVisible="False" ReadOnly="True" SortExpression="STUD_ID" />
+                            <asp:BoundField DataField="L_NAME" HeaderText="L_NAME" SortExpression="L_NAME" />
+                            <asp:BoundField DataField="F_NAME" HeaderText="F_NAME" SortExpression="F_NAME" />
+                            <asp:BoundField DataField="EDUC_TYPE" HeaderText="EDUC_TYPE" SortExpression="EDUC_TYPE" />
+                            <asp:BoundField DataField="GRD_LEVEL" HeaderText="GRD_LEVEL" SortExpression="GRD_LEVEL" />
+                            <asp:BoundField DataField="GRD_TRACK" HeaderText="GRD_TRACK" SortExpression="GRD_TRACK" />
+                            <asp:BoundField DataField="STATUS" HeaderText="STATUS" SortExpression="STATUS" />
+                            <asp:TemplateField HeaderText="Actions">
+                                <ItemTemplate>
+                                    <asp:Button ID="btnView" runat="server" Text="View" CommandName="ViewDetails" CommandArgument='<%# Bind("STUD_ID") %>' CssClass="btn btn-primary"  />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+             </div>
+
+
+
+        
+             
+ <div class="Category">
+      <div class="Category1">
+          <div class="label">Select an educational program to view</div>
+                <asp:CheckBoxList ID="CheckBoxListGradeLevels" runat="server" AutoPostBack="true" OnSelectedIndexChanged="CheckBoxListGradeLevels_SelectedIndexChanged" RepeatDirection="Horizontal" CssClass="grade-levels">   
                     <asp:ListItem Text="Nursery" Value="nursery"/>
                     <asp:ListItem Text="Kinder 1" Value="k1" />
                     <asp:ListItem Text="Kinder 2" Value="k2" />
@@ -185,30 +317,60 @@
                     <asp:ListItem Text="Grade 3" Value="g3" />
                     <asp:ListItem Text="Grade 4" Value="g4" />
                     <asp:ListItem Text="Grade 5" Value="g5" />
-                    <asp:ListItem Text="Grade 6" Value="g6" />
+                     <asp:ListItem Text="Grade 6" Value="g6" />
                     <asp:ListItem Text="Grade 7" Value="g7" />
                     <asp:ListItem Text="Grade 8" Value="g8" />
+                    </asp:CheckBoxList>
+
+                <asp:CheckBoxList ID="CheckBoxListMoreGrades" runat="server" AutoPostBack="true" OnSelectedIndexChanged="CheckBoxListGradeLevels_SelectedIndexChanged" RepeatDirection="Horizontal" CssClass="grade-levels">   
+                    
                     <asp:ListItem Text="Grade 9" Value="g9" />
                     <asp:ListItem Text="Grade 10" Value="g10" />
                     <asp:ListItem Text="Grade 11" Value="g11" />
                     <asp:ListItem Text="Grade 12" Value="g12" />
                 </asp:CheckBoxList>
                         </div>
-                <div>
-                    <asp:CheckBoxList ID="CheckBoxListEduType" runat="server" AutoPostBack="true" OnSelectedIndexChanged="CheckBoxListGradeLevels_SelectedIndexChanged" RepeatDirection="Horizontal">
+     </div>
+
+        
+
+                <div class="Category2">
+                    <asp:CheckBoxList ID="CheckBoxListEduType" runat="server" AutoPostBack="true" OnSelectedIndexChanged="CheckBoxListGradeLevels_SelectedIndexChanged" RepeatDirection="Horizontal" CssClass="edu-types">
+                         
                         <asp:ListItem Text="Regular" Value="regular" />
                         <asp:ListItem Text="Homeschooling" Value="homeschooling" />
                         <asp:ListItem Text="Special Education" Value="specialeduc" />
                     </asp:CheckBoxList>
                 </div>
-                <br />
+
+               <div class="reload-container">
                 <asp:Button ID="Button1" runat="server" Text="Reload" OnClick="Button1_Click" CssClass="btn btn-succes" />
-                <asp:Label ID="errorLabel" runat="server" Text="Label"></asp:Label>
-            </div>
-                    </center>
-                </div>
-            </div>
-        </div>
+                <asp:Label ID="errorLabel" runat="server" Text=""></asp:Label>
+       </div>
+        
+
+
+<script>
+    // Add event listener to handle click on labels
+    document.addEventListener('DOMContentLoaded', function () {
+        var gradeLabels = document.querySelectorAll('.grade-levels label');
+        var eduLabels = document.querySelectorAll('.edu-types label');
+
+        function handleLabelClick(labels) {
+            labels.forEach(function (label) {
+                label.addEventListener('click', function () {
+                    this.querySelector('input').click(); // Simulate click on the hidden checkbox
+                });
+            });
+        }
+
+        handleLabelClick(gradeLabels);
+        handleLabelClick(eduLabels);
+    });
+</script>
+
+
+
 
     </form>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Myconn %>"
