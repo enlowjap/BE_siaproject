@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -70,7 +71,7 @@ namespace BE_siaproject.ADMIN_INTERFACE
         private void LoadStudentDetails(int studId)
         {
             // Use your connection string
-            string connectionString = "Data Source=JAPHET;Initial Catalog=siadb;Integrated Security=True";
+            string connectionString = ConfigurationManager.ConnectionStrings["Myconn"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -98,7 +99,7 @@ namespace BE_siaproject.ADMIN_INTERFACE
         private void LoadSubmittedDocuments(int studId)
         {
             // Use your connection string
-            string connectionString = "Data Source=JAPHET;Initial Catalog=siadb;Integrated Security=True";
+            string connectionString = ConfigurationManager.ConnectionStrings["Myconn"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -163,7 +164,8 @@ namespace BE_siaproject.ADMIN_INTERFACE
         private byte[] GetDocumentData(int docId)
         {
             // Use your connection string
-            string connectionString = "Data Source=JAPHET;Initial Catalog=siadb;Integrated Security=True";
+
+            string connectionString = ConfigurationManager.ConnectionStrings["Myconn"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -193,7 +195,7 @@ namespace BE_siaproject.ADMIN_INTERFACE
         private UserData GetUserById(int userId)
         {
 
-            string connectionString = "Data Source=JAPHET;Initial Catalog=siadb;Integrated Security=True";
+            string connectionString = ConfigurationManager.ConnectionStrings["Myconn"].ConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

@@ -51,9 +51,17 @@
         color: darkred;
     }
 
+        .student i,
+    .teacher i,
+    .subject i {
+    font-size: 40px;
+    color:darkred;
+}
+
     .content {
         flex: 1;
         padding: 20px;
+         margin-top:-610px;
     }
 
     .grid-container {
