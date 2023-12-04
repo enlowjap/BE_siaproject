@@ -8,7 +8,7 @@
     
     <style type="text/css">
         body {
-            background:url('images_user/LogInpic.png');
+            background:url('../images_user/LogInpic.png');
             background-size: cover;        
         }
          h1 {

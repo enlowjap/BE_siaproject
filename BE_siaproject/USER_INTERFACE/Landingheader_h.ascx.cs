@@ -65,7 +65,7 @@ namespace BE_siaproject.USER_INTERFACE
         private UserData GetUserById(int userId)
         {
             
-            string connectionString = "Data Source=JAPHET;Initial Catalog=proj_HOPE;Integrated Security=True";
+            string connectionString = "Data Source=JAPHET;Initial Catalog=siadb;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -98,7 +98,16 @@ namespace BE_siaproject.USER_INTERFACE
 
         protected void Button4_Click(object sender, EventArgs e)
         {
+            // Clear the UserId cookie
+            if (Request.Cookies["UserId"] != null)
+            {
+                HttpCookie userIdCookie = new HttpCookie("UserId");
+                userIdCookie.Expires = DateTime.Now.AddYears(-1);
+                Response.Cookies.Add(userIdCookie);
+            }
 
+            // Redirect to the login page
+            Response.Redirect("~/USER_INTERFACE/Login.aspx");
         }
     }
 }

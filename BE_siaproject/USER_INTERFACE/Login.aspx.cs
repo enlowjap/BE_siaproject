@@ -40,7 +40,7 @@ namespace BE_siaproject.USER_INTERFACE
 
         private int AuthenticateUser(string email, string Passwords)
         {
-            string connectionString = "Data Source=JAPHET;Initial Catalog=proj_HOPE;Integrated Security=True";
+            string connectionString = "Data Source=JAPHET;Initial Catalog=siadb;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

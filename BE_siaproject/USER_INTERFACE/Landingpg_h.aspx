@@ -169,20 +169,37 @@
               <asp:Button ID="Button1" runat="server" Text="Dashboard" OnClick="Button1_Click" CssClass="dash" />
           </div>
                 <div class="top-squares">
-                 <div class="container">  
-             <div class="square red"><h1>Special Education</h1>All Grade Levels<br /><br /><br /><asp:HyperLink ID="HyperLink1" runat="server" CssClass="vid-stat" NavigateUrl="~/Registrationform.aspx">REGISTER NOW!</asp:HyperLink></div>
-            <div class="square blue"><h1>Preschool</h1>(Nursery,Kinder 1,Kinder 2)<br /><br /><br /><br /><br /><br /><asp:HyperLink ID="HyperLink2" runat="server" CssClass="vid-stat" NavigateUrl="~/Registrationform.aspx">REGISTER NOW!</asp:HyperLink></div>
-            <div class="square green"><h1>Elementary</h1>Primary Level (Grades 1 to 3) and Intermediate Level (Grades 4 to 6)<br /><br /><br /><br /><br /><asp:HyperLink ID="HyperLink3" runat="server" CssClass="vid-stat" NavigateUrl="~/Registrationform.aspx">REGISTER NOW!</asp:HyperLink></div>
-            </div></div>      
-               <div class="bottom-squares">
-               <div class="container">
-            <div class="square yellow"><h1>Junior <br /> Highschool</h1>Grade 7 to Grade 10<br /><br /><br /><br /><asp:HyperLink ID="HyperLink4" runat="server" CssClass="vid-stat" NavigateUrl="~/Registrationform.aspx">REGISTER NOW!</asp:HyperLink></div>
-            <div class="square pink"><h1>Senior Highschool</h1>Grade 11 to Grade 12 (HUMSS And STEM)<br /><br /><br /><asp:HyperLink ID="HyperLink5" runat="server" CssClass="vid-stat" NavigateUrl="~/Registrationform.aspx">REGISTER NOW!</asp:HyperLink></div>
-            <div class="square brown"><h1>Home <br />Schooling</h1>All Grade Levels<br /><br /><br /><br /><asp:HyperLink ID="HyperLink6" runat="server" CssClass="vid-stat" NavigateUrl="~/Registrationform.aspx">REGISTER NOW!</asp:HyperLink></div>
-        </div></div>
+                <div class="container">
+                    <div class="square red">
+                        <h1>Special Education</h1>
+                        All Grade Levels<br /><br /><br />
+                        <asp:HyperLink ID="HyperLink1" runat="server" CssClass="vid-stat"
+                            NavigateUrl="~/USER_INTERFACE/Gradelevel.aspx?category=SpecialEducation&checkStatus=true">
+                            REGISTER NOW!
+                        </asp:HyperLink>
+                    </div>
+                    <div class="square blue">
+                        <h1>Regular Schooling</h1>
+                        All Grade Levels<br /><br /><br /><br />
+                        <asp:HyperLink ID="HyperLink3" runat="server" CssClass="vid-stat"
+                            NavigateUrl="~/USER_INTERFACE/Gradelevel.aspx?category=RegularSchooling&checkStatus=true">
+                            REGISTER NOW!
+                        </asp:HyperLink>
+                    </div>
+                    <div class="square brown">
+                        <h1>Home Schooling</h1>
+                        All Grade Levels<br /><br /><br /><br />
+                        <asp:HyperLink ID="HyperLink6" runat="server" CssClass="vid-stat"
+                            NavigateUrl="~/USER_INTERFACE/Gradelevel.aspx?category=HomeSchooling&checkStatus=true">
+                            REGISTER NOW!
+                        </asp:HyperLink>
+                    </div>
+                </div>
+            </div>
+
                 <div class="modal" id="myModal">
                     <div class="modal-content">
-                      <img src="Images/piclogo.png" alt="Logo" style="max-width: 150px; height: auto;" />
+                      <img src="../images-user/piclogo.png" alt="Logo" style="max-width: 150px; height: auto;" />
                         <p>Choose a grade level you want to enroll</p>
                         <asp:Button ID="okButton" runat="server" Text="OK" OnClientClick="return closeModal();" />
                     </div>
@@ -196,10 +213,21 @@
             }
 
             // Display the modal when the page loads
-            window.onload = function () {
-                var modal = document.getElementById("myModal");
-                modal.style.display = "block";
-            };
+                    function displayModal() {
+                        var modal = document.getElementById("myModal");
+                        modal.style.display = "block";
+                    }
+
+                    // Display the modal when the page loads (this will be called only if the server-side logic triggers it)
+                    window.onload = function () {
+                        var popUpDisplayed = '<%= Session["PopUpDisplayed"] %>';
+                        if (popUpDisplayed !== 'True') {
+                            displayModal();
+                            <% Session["PopUpDisplayed"] = true; %>
+                        }
+                    };    
+
+                    
                 </script>
     </form>
 </body>

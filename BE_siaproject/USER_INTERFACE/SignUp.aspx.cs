@@ -19,7 +19,7 @@ namespace BE_siaproject.USER_INTERFACE
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string connectionString = "Data Source=JAPHET;Initial Catalog=proj_HOPE;Integrated Security=True";
+            string connectionString = "Data Source=JAPHET;Initial Catalog=siadb;Integrated Security=True";
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))

@@ -9,7 +9,7 @@
         body{
             margin:0;
             font-family:Arial;
-            background:url('images_user/Loginpic2.png');
+            background:url('../images_user/Loginpic2.png');
             background-size:cover;
         }
 
@@ -72,6 +72,22 @@
             .bttn:hover {
             background: #45a049;
 }
+           .seepass {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.seepass input {
+    margin-right: 10px; /* Add some spacing between the checkbox and the label */
+    padding:0;
+    width:25px;
+}
+
+.seepass label {
+    margin: 0; /* Remove any default margin for the label */
+     padding:0;
+}
 
     </style>
 </head>
@@ -87,34 +103,37 @@
                   <asp:TextBox ID="txtUsername" runat="server" CssClass="inputbox" onfocus="clearTextBox(this)"></asp:TextBox>
                     <label for="password">Password:</label>
 
-                 <asp:TextBox ID="txtboxpassword" runat="server" CssClass="inputbox" onfocus="clearTextBox(this)"></asp:TextBox>
+                 <asp:TextBox ID="txtboxpassword" runat="server" CssClass="inputbox" onfocus="clearTextBox(this)" TextMode="Password"></asp:TextBox>
+
+                        <div class="seepass">
+                            <input type="checkbox" id="chkSeePassword" onclick="togglePassword()" />
+                              <label for="chkSeePassword">See Password</label>
+
+                        </div>
+                        <br />
 
                 <asp:Button ID="Button1" runat="server" Text="Log In" CssClass="bttn" OnClientClick="return submitForm();" OnClick="Button1_Click" />
 
                         <script type="text/javascript">
+
+                            function togglePassword() {
+                                var passwordTextBox = document.getElementById('<%= txtboxpassword.ClientID %>');
+                                var checkbox = document.getElementById('chkSeePassword');
+
+                                if (checkbox.checked) {
+                                    passwordTextBox.type = 'text';
+                                } else {
+                                    passwordTextBox.type = 'password';
+                                }
+                            }
+
+
                             function clearTextBox(textBox) {
                                 if (textBox.value === textBox.defaultValue) {
                                     textBox.value = '';
                                 }
                             }
-
-                    <%--function submitForm() {
-                        var username = document.getElementById('<%= txtUsername.ClientID %>').value;
-                        var password = document.getElementById('<%= txtboxpassword.ClientID %>').value;
-
-                        // Basic validation: Check if username and password are not empty
-                        if (username.trim() === '' || password.trim() === '') {
-                            alert('Username and password are required.');
-                            return false; // Prevent form submission
-                        }
-
-                        // Additional validation logic can be added here if needed
-
-                        // Redirect to the home page
-                        window.location.href = 'WelcomePage.aspx';
-                        return false;
-                    }--%>
-                </script>
+                        </script>
                         <asp:Label ID="errorLabel" runat="server" Text=""></asp:Label>
         </div>  
     </form>

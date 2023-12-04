@@ -1,4 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registrationform.aspx.cs" Inherits="BE_siaproject.USER_INTERFACE.Registrationform" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <%@ Register Src="~/USER_INTERFACE/Landingheader_h.ascx" TagName="Header" TagPrefix="uc" %>
 <!DOCTYPE html>
 
@@ -88,13 +90,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager runat="server"></asp:ScriptManager>
         <uc:Header runat="server" ID="Header1" />
         <div class="menu-header">
     <div class="tab1">
         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Registrationform.aspx">Personal Information</asp:HyperLink>
     </div>
     <div class="tab2">
-        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/document.aspx">Submit Documents</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink2" runat="server" >Submit Documents</asp:HyperLink>
     </div>
     <div class="registration">
         <p>REGISTRATION</p>
@@ -109,41 +112,50 @@
                 </tr>
                 <tr>
                     <td>Name:</td>
-                    <td><asp:TextBox ID="txtFullName" runat="server" Text="SURNAME"></asp:TextBox></td>
-                    <td><asp:TextBox ID="TextBox1" runat="server" Text="FIRSTNAME"></asp:TextBox></td>
-                    <td><asp:TextBox ID="TextBox2" runat="server" Text="MIDDLENAME"></asp:TextBox></td>
-                    <td><asp:TextBox ID="TextBox3" runat="server" Text="SUFFIX"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtlname" runat="server" Text="SURNAME"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtfname" runat="server" Text="FIRSTNAME"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtmname" runat="server" Text="MIDDLENAME"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtsuffix" runat="server" Text="SUFFIX"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td>Age:</td>
-                    <td><asp:TextBox ID="txtEmail" runat="server"></asp:TextBox></td>
+                    <td></td>
+                    <td>Surname</td>
+                    <td>First Name</asp:TextBox></td>
+                    <td>Middle Name></td>
+                    <td>Suffix</td>
+                </tr>
+                <tr>
+                    <td>LRN:</td>
+                    <td><asp:TextBox ID="txtlrn" runat="server"></asp:TextBox></td>
                     <td>Place of birth:</td>
-                    <td><asp:TextBox ID="TextBox4" runat="server"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtpob" runat="server"></asp:TextBox></td>
                     <td>Date of birth:</td>
-                    <td><asp:TextBox ID="TextBox5" runat="server"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtdob" runat="server"></asp:TextBox></td>
+                    <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtdob" DefaultView="Years" Format="dd-MM-yyyy" />
                 </tr>
                 <tr>
                     <td>Gender:</td>
-                    <td><asp:TextBox ID="TextBox6" runat="server"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtgender" runat="server"></asp:TextBox></td>
                     <td>Nationality:</td>
-                    <td><asp:TextBox ID="TextBox7" runat="server"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtnationlty" runat="server"></asp:TextBox></td>
                     <td>Religion:</td>
-                    <td><asp:TextBox ID="TextBox8" runat="server"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtreligion" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>Address:</td>
-                    <td><asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtaddress" runat="server" ></asp:TextBox></td>
                     <td>Email Address:</td>
-                    <td><asp:TextBox ID="TextBox9" runat="server" TextMode="Password"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtemail" runat="server" ReadOnly="True"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>Telephone No.:</td>
-                    <td><asp:TextBox ID="TextBox10" runat="server" TextMode="Password"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txttele" runat="server" ></asp:TextBox></td>
                     <td>Mobile No.:</td>
-                    <td><asp:TextBox ID="TextBox11" runat="server" TextMode="Password"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtmobil" runat="server" ></asp:TextBox></td>
                 </tr>
             </table>
-            <asp:Button ID="Button1" runat="server" Text="Submit" CssClass="submitbttn" OnClick="Button1_Click" />
+             <asp:Button ID="Button2" runat="server" Text="Cancel" CssClass="submitbttn" OnClick="Button2_Click" />
+            <asp:Button ID="Button1" runat="server" Text="Next" CssClass="submitbttn" OnClick="Button1_Click" />
             
     </div>
     </div>

@@ -86,11 +86,11 @@
 
 <div class="Lmenubar">
             <div class="logo">
-            <asp:HyperLink ID="hypImageLink" runat="server" NavigateUrl="Login.aspx">
-            <img alt="HOPE LOGO" class="auto-style1" src="images_user/LOGO.png" />
+            <asp:HyperLink ID="hypImageLink" runat="server" NavigateUrl="#">
+            <img alt="HOPE LOGO" class="auto-style1" src="../images_user/LOGO.png" />
             </asp:HyperLink>
             </div>
             <div class="Lheader-seperation">
-            <img src="images_user/2815428.png" /><asp:Button ID="Login" runat="server" CssClass="Lbuttons" OnClick="Button4_Click" Text="Name" />
+            <img src="../images_user/2815428.png" /><asp:Button ID="Login" runat="server" CssClass="Lbuttons" OnClick="Button4_Click" Text="Name" />
         </div>
     </div>

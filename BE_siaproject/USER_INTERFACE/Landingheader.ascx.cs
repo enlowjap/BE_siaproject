@@ -16,17 +16,17 @@ namespace BE_siaproject.USER_INTERFACE
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect(Request.Url.AbsolutePath);
+            Response.Redirect("About.aspx");
         }
 
         protected void clickeve_acad(object sender, EventArgs e)
         {
-            Response.Redirect(Request.Url.AbsolutePath);
+            Response.Redirect("Academicpg1.aspx");
         }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            Response.Redirect(Request.Url.AbsolutePath);
+            Response.Redirect("Contact.aspx");
         }
 
         protected void loginb(object sender, EventArgs e)

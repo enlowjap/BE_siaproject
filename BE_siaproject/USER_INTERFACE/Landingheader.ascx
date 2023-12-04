@@ -72,8 +72,8 @@
     <div>
     <div class="Lmenubar">
                 <div class="logo">
-                <asp:HyperLink ID="hypImageLink" runat="server" NavigateUrl="Landingpg.aspx">
-                <img alt="HOPE LOGO" class="auto-style1" src="images_user/LOGO.png" />
+                <asp:HyperLink ID="hypImageLink" runat="server" NavigateUrl="~/USER_INTERFACE/Landingpage.aspx">
+                <img alt="HOPE LOGO" class="auto-style1" src="../images_user/LOGO.png" />
                 </asp:HyperLink>
                 </div>
                 <div class="Lheader-seperation">
