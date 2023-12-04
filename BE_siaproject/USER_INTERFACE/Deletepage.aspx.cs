@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -62,9 +63,9 @@ namespace BE_siaproject.USER_INTERFACE
                 private UserData GetUserById(int userId)
                 {
 
-                    string connectionString = "Data Source=JAPHET;Initial Catalog=siadb;Integrated Security=True";
+                    string connectionString = ConfigurationManager.ConnectionStrings["Myconn"].ConnectionString;
 
-                    using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
                     {
                         string query = "SELECT STUD_ID, F_NAME, L_NAME FROM STUDENT WHERE STUD_ID = @UserId";
                         using (SqlCommand cmd = new SqlCommand(query, connection))
@@ -108,7 +109,7 @@ namespace BE_siaproject.USER_INTERFACE
                 // Use a try-catch block to handle any potential exceptions
                 try
                 {
-                    string connectionString = "Data Source=JAPHET;Initial Catalog=siadb;Integrated Security=True";
+                    string connectionString = ConfigurationManager.ConnectionStrings["Myconn"].ConnectionString;
 
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {

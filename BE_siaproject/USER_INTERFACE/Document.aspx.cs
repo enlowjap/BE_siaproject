@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
@@ -66,7 +67,7 @@ namespace BE_siaproject.USER_INTERFACE
         // Method to retrieve user data from the database based on user ID
         private UserData GetUserById(int userId)
         {
-            string connectionString = "Data Source=JAPHET;Initial Catalog=siadb;Integrated Security=True";
+            string connectionString = ConfigurationManager.ConnectionStrings["Myconn"].ConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -100,7 +101,7 @@ namespace BE_siaproject.USER_INTERFACE
         // Function to retrieve only the medical document name based on user ID
         private string GetMedicalDocumentName(int userId)
         {
-            string connectionString = "Data Source=JAPHET;Initial Catalog=siadb;Integrated Security=True";
+            string connectionString = ConfigurationManager.ConnectionStrings["Myconn"].ConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -122,7 +123,7 @@ namespace BE_siaproject.USER_INTERFACE
 
         private string GetReportCardName(int userId)
         {
-            string connectionString = "Data Source=JAPHET;Initial Catalog=siadb;Integrated Security=True";
+            string connectionString = ConfigurationManager.ConnectionStrings["Myconn"].ConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -144,7 +145,7 @@ namespace BE_siaproject.USER_INTERFACE
 
         private string GetBCName(int userId)
         {
-            string connectionString = "Data Source=JAPHET;Initial Catalog=siadb;Integrated Security=True";
+            string connectionString = ConfigurationManager.ConnectionStrings["Myconn"].ConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -240,7 +241,7 @@ namespace BE_siaproject.USER_INTERFACE
 
         private bool CheckIfDocumentExists(int userId, string docType)
         {
-            string connectionString = "Data Source=JAPHET;Initial Catalog=siadb;Integrated Security=True";
+            string connectionString = ConfigurationManager.ConnectionStrings["Myconn"].ConnectionString;
             string query = "SELECT COUNT(*) FROM DOCUMENTS WHERE STUD_ID = @StudentId AND DOC_TYPE = @DocType";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -260,7 +261,7 @@ namespace BE_siaproject.USER_INTERFACE
 
         private void UpdateDocument(int userId, string docName, string docType, byte[] fileData, UserData userData)
         {
-            string connectionString = "Data Source=JAPHET;Initial Catalog=siadb;Integrated Security=True";
+            string connectionString = ConfigurationManager.ConnectionStrings["Myconn"].ConnectionString;
             string query = "UPDATE DOCUMENTS SET DOC_NAME = @DocName, DATA = @FileData WHERE STUD_ID = @StudentId AND DOC_TYPE = @DocType";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -315,7 +316,7 @@ namespace BE_siaproject.USER_INTERFACE
 
         private void InsertDocument(int userId, string docName, string docType, byte[] fileData, UserData userData)
         {
-            string connectionString = "Data Source=JAPHET;Initial Catalog=siadb;Integrated Security=True";
+            string connectionString = ConfigurationManager.ConnectionStrings["Myconn"].ConnectionString;
             string query = "INSERT INTO DOCUMENTS (STUD_ID, DOC_NAME, DOC_TYPE, DATA) VALUES (@StudentId, @DocName, @DocType, @FileData)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))

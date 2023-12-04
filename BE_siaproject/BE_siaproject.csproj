@@ -201,7 +201,6 @@
     <Content Include="pictures_admin\rightarrowinsideacircle_122006.png" />
     <Content Include="pictures_admin\verificationpic.png" />
     <Content Include="pictures_admin\welcomepic.png" />
-    <Content Include="test.aspx" />
     <Content Include="USER_INTERFACE\About.aspx" />
     <Content Include="USER_INTERFACE\Academicpg1.aspx" />
     <Content Include="USER_INTERFACE\Academicpg2.aspx" />
@@ -272,13 +271,6 @@
       <DependentUpon>ViewDetailspage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="test.aspx.cs">
-      <DependentUpon>test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test.aspx.designer.cs">
-      <DependentUpon>test.aspx</DependentUpon>
-    </Compile>
     <Compile Include="USER_INTERFACE\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -58,7 +59,7 @@ namespace BE_siaproject.USER_INTERFACE
 
         private UserData GetUserById(int userId)
         {
-            string connectionString = "Data Source=JAPHET;Initial Catalog=siadb;Integrated Security=True";
+            string connectionString = ConfigurationManager.ConnectionStrings["Myconn"].ConnectionString;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
