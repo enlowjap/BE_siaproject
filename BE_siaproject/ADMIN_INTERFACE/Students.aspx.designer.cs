@@ -60,6 +60,15 @@ namespace BE_siaproject.ADMIN_INTERFACE
         protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListGradeLevels;
 
         /// <summary>
+        /// CheckBoxListMoreGrades control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListMoreGrades;
+
+        /// <summary>
         /// CheckBoxListEduType control.
         /// </summary>
         /// <remarks>
