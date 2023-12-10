@@ -1,7 +1,11 @@
-﻿using System;
+﻿using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -30,7 +34,9 @@ namespace BE_siaproject.ADMIN_INTERFACE
                         {
                             TotalCounths();
                             TotalCountrg();
-                            TotalCountsped();   
+                            TotalCountsped();
+                            GridView1.DataSource = SqlDataSource1;
+                            GridView1.DataBind();
                         }
                         else
                         {
@@ -52,6 +58,111 @@ namespace BE_siaproject.ADMIN_INTERFACE
             }
         }
 
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            // Rebind the GridView with the updated page index
+            GridView1.DataSource = SqlDataSource1;
+            GridView1.DataBind();
+        }
+
+        protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView2.PageIndex = e.NewPageIndex;
+            // Rebind the GridView with the updated page index
+            GridView2.DataSource = SqlDataSource1;
+            GridView2.DataBind();
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "ViewDetails")
+            {
+                // Retrieve the STUD_ID from the CommandArgument
+                int studId = Convert.ToInt32(e.CommandArgument);
+
+                // Redirect or perform any other action based on the STUD_ID
+                Response.Redirect($"ViewDetailsPage.aspx?studId={studId}");
+            }
+        }
+
+        protected void CheckBoxListGradeLevels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Reset parameters
+            foreach (var parameter in SqlDataSource2.SelectParameters)
+            {
+                if (parameter is Parameter)
+                {
+                    (parameter as Parameter).DefaultValue = "False";
+                }
+            }
+
+            // Set parameters based on selected checkboxes
+            foreach (System.Web.UI.WebControls.ListItem item in CheckBoxListGradeLevels.Items)
+            {
+                switch (item.Value)
+                {
+                    case "nursery":
+                    case "k1":
+                    case "k2":
+                    case "g1":
+                    case "g2":
+                    case "g3":
+                    case "g4":
+                    case "g5":
+                    case "g6":
+                    case "g7":
+                    case "g8":
+                    case "g9":
+                    case "g10":
+                    case "g11":
+                    case "g12":
+                        // Add cases for other grade levels
+                        SqlDataSource2.SelectParameters[item.Value].DefaultValue = item.Selected.ToString();
+                        break;
+                }
+            }
+
+            // Set parameters based on selected checkboxes in CheckBoxListEduType
+            foreach (System.Web.UI.WebControls.ListItem item in CheckBoxListEduType.Items)
+            {
+                switch (item.Value)
+                {
+                    case "regular":
+                    case "homeschooling":
+                    case "specialeduc":
+                        SqlDataSource2.SelectParameters[item.Value].DefaultValue = item.Selected.ToString();
+                        break;
+                }
+            }
+
+
+
+
+            GridView2.DataSource = SqlDataSource2;
+            GridView2.DataBind();
+            GridView1.Visible = false;
+
+        }
+
+        protected void GridView1_DataBound(object sender, EventArgs e)
+        {
+            if (GridView1.Rows.Count == 0 && GridView1.DataSourceID.Length > 0)
+            {
+                ShowError("No data found for the GridView.");
+            }
+        }
+
+        // Similar modifications for other GridView events
+
+        private void ShowError(string message)
+        {
+            // You can use a label or another control to display the error message
+            errorLabel.Text = message;
+            errorLabel.Visible = true;
+
+            // You may also want to log the error for further investigation
+        }
 
         private void TotalCounths()
         {
@@ -283,6 +394,10 @@ namespace BE_siaproject.ADMIN_INTERFACE
             return null;
         }
 
-        
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ADMIN_INTERFACE/Enrolled.aspx");//reload button
+        }
     }
 }
