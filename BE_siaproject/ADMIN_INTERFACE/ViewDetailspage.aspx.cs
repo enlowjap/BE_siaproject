@@ -85,10 +85,12 @@ namespace BE_siaproject.ADMIN_INTERFACE
                     {
                         if (reader.Read())
                         {
+                            System.Globalization.TextInfo textInfo = new System.Globalization.CultureInfo("en-US", false).TextInfo;
                             // Set values to the labels on the page
-                            lblFirstName.Text = "First Name: " + reader["F_NAME"].ToString();
-                            lblLastName.Text = "Last Name: " + reader["L_NAME"].ToString();
-                            lblMiddlename.Text = "Middle Name: " + reader["M_NAME"].ToString();
+                            lblFirstName.Text = "First Name: " + textInfo.ToTitleCase(reader["F_NAME"].ToString());
+                            lblLastName.Text = "Last Name: " + textInfo.ToTitleCase(reader["L_NAME"].ToString());
+                            lblMiddlename.Text = "Middle Name: " + textInfo.ToTitleCase(reader["M_NAME"].ToString());
+                            lblSufix.Text = "Suffix: " + textInfo.ToTitleCase(reader["M_NAME"].ToString());
                             // Add other labels for remaining details
                         }
                     }

@@ -49,14 +49,19 @@
         <a href="#"><i class="fas fa-user-tie"></i>FACULTY TEACHERS</a>
         </div>
 
-
+        <h1>Student Information</h1>
          <div>
             <!-- Add controls to display student details here -->
-             <asp:Label ID="lblLastName" runat="server" ></asp:Label>
+            <asp:Label ID="lblLastName" runat="server" ></asp:Label>
             <asp:Label ID="lblFirstName" runat="server" ></asp:Label>
             <asp:Label ID="lblMiddlename" runat="server" ></asp:Label>
+             <asp:Label ID="lblSufix" runat="server" ></asp:Label>
             <!-- Add other labels for remaining details -->
         </div>
+        <div>
+
+        </div>
+
 
 
         <div>
