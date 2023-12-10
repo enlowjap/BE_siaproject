@@ -116,8 +116,7 @@
                     <asp:ListItem>STEM</asp:ListItem>
                     <asp:ListItem>HUMS</asp:ListItem>
                     <asp:ListItem>ABM</asp:ListItem>
-                    <asp:ListItem>TECH</asp:ListItem>
-                    <asp:ListItem Selected="True" Value="none">TRACK</asp:ListItem>
+                    <asp:ListItem Selected="True">TRACK</asp:ListItem>
                 </asp:DropDownList>
                 <br />
                  <asp:Button ID="Button2" runat="server" Text="Cancel" OnClick="Button2_Click" CssClass="bttn" />
