@@ -27,8 +27,8 @@ namespace BE_siaproject.ADMIN_INTERFACE
 
                         if (userData != null)
                         {
-                            // Set the button text to the user's first name and last name
-                            
+                            TotalCountEnrolling();
+                            TotalCountEnrolled();
                         }
                         else
                         {
@@ -50,6 +50,53 @@ namespace BE_siaproject.ADMIN_INTERFACE
             }
         }
 
+        private void TotalCountEnrolling()
+        {
+            // Your connection string
+            string connectionString = ConfigurationManager.ConnectionStrings["Myconn"].ConnectionString; ;
+
+            // SQL query to get the total count of students with homeschooling educ_type and status is approve
+            string query = "SELECT COUNT(*) FROM STUDENT " +
+                           "WHERE STATUS = 'pending' ";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    // Execute the query and get the total count
+                    int totalCount = (int)cmd.ExecuteScalar();
+
+                    // Update the label text with the total count
+                    lblenrolingstud.Text = $" {totalCount}";
+                }
+            }
+        }
+
+        private void TotalCountEnrolled()
+        {
+            // Your connection string
+            string connectionString = ConfigurationManager.ConnectionStrings["Myconn"].ConnectionString; ;
+
+            // SQL query to get the total count of students with homeschooling educ_type and status is approve
+            string query = "SELECT COUNT(*) FROM STUDENT " +
+                           "WHERE STATUS = 'approve' ";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    // Execute the query and get the total count
+                    int totalCount = (int)cmd.ExecuteScalar();
+
+                    // Update the label text with the total count
+                    lblenrolledstud.Text = $" {totalCount}";
+                }
+            }
+        }
 
         // Assuming you have a UserData class to store user data
         public class UserData

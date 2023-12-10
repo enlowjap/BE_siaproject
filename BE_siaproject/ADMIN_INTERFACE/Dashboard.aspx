@@ -251,18 +251,18 @@
              <div class="statistics">
     <div class="student">
          <i class="fas fa-graduation-cap"></i>
-        <h3>Total Students</h3>
-        <p id="totalStudents">Loading...</p>
+        <h3>Total Enrolling Students</h3>
+        <asp:Label ID="lblenrolingstud" runat="server" Text="Label"></asp:Label>
     </div>
     <div class="teacher">
          <i class="fa fa-users"></i>
         <h3>Total Teachers</h3>
-        <p id="totalTeachers">Loading...</p>
+        <asp:Label ID="lblteachers" runat="server" Text="Label"></asp:Label>
     </div>
     <div class="subject">
          <i class="fas fa-book"></i>
-        <h3>Total Subjects</h3>
-        <p id="totalSubjects">Loading...</p>
+        <h3>Total Enrolled</h3>
+        <asp:Label ID="lblenrolledstud" runat="server" Text=" "></asp:Label>
     </div>
 </div>
    <div class="calendar">

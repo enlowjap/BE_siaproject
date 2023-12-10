@@ -31,5 +31,32 @@ namespace BE_siaproject.ADMIN_INTERFACE
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::BE_siaproject.ADMIN_INTERFACE.Header Header1;
+
+        /// <summary>
+        /// lblenrolingstud control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblenrolingstud;
+
+        /// <summary>
+        /// lblteachers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblteachers;
+
+        /// <summary>
+        /// lblenrolledstud control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblenrolledstud;
     }
 }
